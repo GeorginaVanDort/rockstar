@@ -6,7 +6,9 @@
     <p>Click on a Stylist to see details:</p>
     <div class="row">
       #foreach ($stylist in $stylists)
-        <div class="col-sm-4"><a href="/stylists/$stylist.getId()">$stylist.getName()</a></div>
+        <div class="col-sm-4"><a href="/stylists/$stylist.getId()">$stylist.getName()</a>
+          <img src="$stylist.getImgurl()" alt=""></img>
+        </div>
       #end
     </div>
   #else
@@ -20,6 +22,9 @@
     <div class="form-group">
       <label for="name">Name of Stylist</label>
       <input id="name" name="name" type="text" class="form-control">
+
+      <label for="imgurl">Image URL</label>
+      <input id="imgurl" name="imgurl" type="text" class="form-control">
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>

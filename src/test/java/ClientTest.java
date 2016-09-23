@@ -107,7 +107,7 @@ public class ClientTest {
 
   @Test
   public void save_savesStylistIdIntoDB_true() {
-    Stylist testStylist = new Stylist("David Bowie");
+    Stylist testStylist = new Stylist("David Bowie", "img.jpg");
     testStylist.save();
     Client testClient = new Client("Fred", "503-111-1111", testStylist.getId());
     testClient.save();

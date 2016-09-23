@@ -7,13 +7,19 @@ import org.sql2o.*;
 public class Stylist {
   private String name;
   private int id;
+  private String imgurl;
 
-  public Stylist (String name) {
+  public Stylist (String name, String imgurl) {
     this.name = name;
+    this.imgurl = imgurl;
   }
 
   public String getName(){
     return name;
+  }
+
+  public String getImgurl(){
+    return imgurl;
   }
 
   public int getId() {
@@ -39,9 +45,10 @@ public class Stylist {
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO stylists (name) VALUES (:name)";
+      String sql = "INSERT INTO stylists (name, imgurl) VALUES (:name, :imgurl)";
       this.id = (int) con.createQuery(sql, true)
         .addParameter("name", this.name)
+        .addParameter("imgurl", this.imgurl)
         .executeUpdate()
         .getKey();
   }
@@ -66,11 +73,12 @@ public class Stylist {
     }
   }
 
-  public void update(String name) {
+  public void update(String name, String imgurl) {
     try(Connection con = DB.sql2o.open()) {
-    String sql = "UPDATE stylists SET name = :name WHERE id = :id";
+    String sql = "UPDATE stylists SET name = :name, imgurl = :imgurl WHERE id = :id";
     con.createQuery(sql)
       .addParameter("name", name)
+      .addParameter("imgurl", imgurl)
       .addParameter("id", id)
       .executeUpdate();
     }

@@ -22,7 +22,8 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params("id")));
       String name = request.queryParams("name");
-      stylist.update(name);
+      String imgurl = request.queryParams("imgurl");
+      stylist.update(name, imgurl);
       String url = String.format("/stylists/%d", stylist.getId());
       response.redirect(url);
       return new ModelAndView(model, layout);
@@ -53,7 +54,8 @@ public class App {
     post("/stylists", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
-      Stylist newStylist = new Stylist(name);
+      String imgurl = request.queryParams("imgurl");
+      Stylist newStylist = new Stylist(name, imgurl);
       newStylist.save();
       model.put("stylist", newStylist);
       model.put("template", "templates/success.vtl");

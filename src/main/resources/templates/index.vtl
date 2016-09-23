@@ -1,0 +1,24 @@
+<h1>Rock Star Hair Salon</h1>
+
+  <h2> Stylists: </h2>
+
+  #if($stylists)
+    <p>Click on a Stylist to see details:</p>
+    <ul>
+      #foreach ($stylist in $stylists)
+        <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
+      #end
+    </ul>
+  #else
+    <p>There are no stylists listed</p>
+  #end
+
+  <h2>Add a Stylist</h2>
+
+  <form action="/stylists" method="post">
+    <div class="form-group">
+      <label for="name">Name of Stylist</label>
+      <input id="name" name="name" type="text" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>

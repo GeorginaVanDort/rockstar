@@ -1,5 +1,8 @@
 ## Project Name
 Rockstar Hair Salon
+
+#### By Georgina Van Dort
+
 ## Features
 This java app helps the employees of Rockstar Hair Salon keep track of their Stylists and Clients.
 
@@ -17,14 +20,18 @@ This java app helps the employees of Rockstar Hair Salon keep track of their Sty
 ##Technologies
 Java, JUnit, Gradle, Spark, Velocity, PostgreSQL.
 
-## Usage
+## Setup/Installation Requirements
 * Please make sure Java, JRE, PostgreSQL and Gradle are installed.
 * Run PostgreSQL
-* In a new tab run psql and use the following commands:
+* In a second tab run psql and enter the following commands:
 CREATE DATABASE hair_salon;
 CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
-CREATE TABLE clients (id serial PRIMARY KEY, description varchar);
+CREATE TABLE clients (id serial PRIMARY KEY, name varchar, phone varchar, stylist_id int);
+CREATE DATABASE hair_salon_test with template hair_salon;
 
-## Author/s
+* Clone this directory and execute "gradle run"
+* Navigate to localhost:4567
 
-##License
+
+## Support & Contact
+For questions, concerns, or suggestions please contact me on Github :)

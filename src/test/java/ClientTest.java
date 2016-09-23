@@ -22,3 +22,28 @@ public class ClientTest {
       con.createQuery(deleteClientQuery).executeUpdate();
     }
   }
+
+  @Test
+    public void Client_instantiatesCorrectly_true() {
+      Client testClient = new Client("Fred", "503-111-1111", 1);
+      assertEquals(true, testClient instanceof Client);
+    }
+
+    @Test
+    public void Client_instantiatesWithName_String() {
+      Client myClient = new Client("Fred", "503-111-1111", 1);
+      assertEquals("Fred", myClient.getName());
+    }
+
+    @Test
+    public void Client_instantiatesWithPhone_String() {
+      Client myClient = new Client("Fred", "503-111-1111", 1);
+      assertEquals("503-111-1111", myClient.getPhone());
+    }
+
+    @Test
+    public void Client_instantiatesWithStylistId_Int() {
+      Client myClient = new Client("Fred", "503-111-1111", 1);
+      assertEquals(1, myClient.getStylistId());
+    }
+}

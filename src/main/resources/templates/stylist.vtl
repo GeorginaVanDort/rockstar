@@ -1,30 +1,28 @@
 
 <h1>$stylist.getName():</h1>
 
-<h3>Client List:</h3>
-<ul>
-  #foreach($client in $stylist.getClients())
-    <li><a href="/clients/$client.getId()">$client.getName()</a></li>
-  #end
-</ul>
+#if($client)
+  <p>Click on a Client to see details:</p>
+    <ul>
+      #foreach($client in $stylist.getClients())
+        <li><a href="/clients/$client.getId()">$client.getName()</a></li>
+      #end
+    </ul>
+#else
+  <p>There are no clients listed</p>
+#end
 
 <h2>Add a new Client:</h2>
 
   <form action="/clients" method="post">
-    <label for="stylist">Select a Stylist</label>
-    <select id='stylist' name='stylist' type='text'>
-      #foreach($stylist in $stylists)
-        <option value="$stylist.getId()">$stylist.getName()</option>
-      #end
-    </select>
     <div class="form-group">
+      <input id="stylist_id" name="stylist_id" type="hidden" value="$stylist.getId()">
+
       <label for="name">Client Name</label>
       <input id="name" name="name" type="text" class="form-control">
-    </div>
 
-    <div class="form-group">
-      <label for="illness">Main Illness</label>
-      <input id="illness" name="illness" type="text" class="form-control">
+      <label for="name">Phone Number</label>
+      <input id="phone" name="phone" type="text" class="form-control">
     </div>
 
     <button type="submit" class="btn btn-success">Add Client</button>

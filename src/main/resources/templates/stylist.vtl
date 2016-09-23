@@ -3,9 +3,10 @@
 <hr>
 
 <h2>Edit $stylist.getName()'s Details:</h2>
+
 <form action="/stylists/$stylist.getId()" method="post">
   <div class="form-group">
-    <label for="name">Name of Stylist</label>
+    <label for="name">Edit Name</label>
     <input id="name" name="name" type="text" class="form-control">
   </div>
   <button type="submit" class="btn btn-success">Submit</button>
@@ -27,6 +28,7 @@
 
 <h2>Add a new Client for $stylist.getName():</h2>
 
+<div>
   <form action="/clients" method="post">
     <div class="form-group">
       <input id="stylist_id" name="stylist_id" type="hidden" value="$stylist.getId()">
@@ -40,3 +42,4 @@
 
     <button type="submit" class="btn btn-success">Add Client</button>
   </form>
+</div>

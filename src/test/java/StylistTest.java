@@ -50,31 +50,31 @@ public class StylistTest {
   }
 
   @Test
-    public void all_returnsAllInstancesOfStylist_true() {
-      Stylist firstStylist = new Stylist("David Bowie");
-      firstStylist.save();
-      Stylist secondStylist = new Stylist("Iggy Pop");
-      secondStylist.save();
-      assertEquals(true, Stylist.all().get(0).equals(firstStylist));
-      assertEquals(true, Stylist.all().get(1).equals(secondStylist));
-    }
+  public void all_returnsAllInstancesOfStylist_true() {
+    Stylist firstStylist = new Stylist("David Bowie");
+    firstStylist.save();
+    Stylist secondStylist = new Stylist("Iggy Pop");
+    secondStylist.save();
+    assertEquals(true, Stylist.all().get(0).equals(firstStylist));
+    assertEquals(true, Stylist.all().get(1).equals(secondStylist));
+  }
 
-    @Test
-    public void save_assignsIdToObject_True() {
-      Stylist testStylist = new Stylist("David Bowie");
-      testStylist.save();
-      Stylist savedStylist = Stylist.all().get(0);
-      assertEquals(testStylist.getId(), savedStylist.getId());
-    }
+  @Test
+  public void save_assignsIdToObject_True() {
+    Stylist testStylist = new Stylist("David Bowie");
+    testStylist.save();
+    Stylist savedStylist = Stylist.all().get(0);
+    assertEquals(testStylist.getId(), savedStylist.getId());
+  }
 
-    @Test
-    public void getId_stylistsInstantiateWithAnId_True() {
-      Stylist testStylist = new Stylist("David Bowie");
-      testStylist.save();
-      assertTrue(testStylist.getId() > 0);
-    }
+  @Test
+  public void getId_stylistsInstantiateWithAnId_True() {
+    Stylist testStylist = new Stylist("David Bowie");
+    testStylist.save();
+    assertTrue(testStylist.getId() > 0);
+  }
 
-    @Test
+  @Test
     public void find_returnsStylistWithSameId_secondStylist() {
       Stylist firstStylist = new Stylist("David Bowie");
       firstStylist.save();
@@ -83,17 +83,15 @@ public class StylistTest {
       assertEquals(Stylist.find(secondStylist.getId()), secondStylist);
     }
 
-    @Test
-    public void getClients_retrievesALlClientsFromDatabase_ClientsList() {
-      Stylist testStylist = new Stylist("David Bowie");
-      testStylist.save();
-      Client firstClient = new Client("Fred", "503-111-1111", testStylist.getId());
-      firstClient.save();
-      Client secondClient = new Client("Fred", "503-111-1111", testStylist.getId());
-      secondClient.save();
-      Client[] clients = new Client[] { firstClient, secondClient };
-      assertTrue(testStylist.getClients().containsAll(Arrays.asList(clients)));
-    }
-
-
+  @Test
+  public void getClients_retrievesALlClientsFromDatabase_ClientsList() {
+    Stylist testStylist = new Stylist("David Bowie");
+    testStylist.save();
+    Client firstClient = new Client("Fred", "503-111-1111", testStylist.getId());
+    firstClient.save();
+    Client secondClient = new Client("Fred", "503-111-1111", testStylist.getId());
+    secondClient.save();
+    Client[] clients = new Client[] { firstClient, secondClient };
+    assertTrue(testStylist.getClients().containsAll(Arrays.asList(clients)));
+  }
 }

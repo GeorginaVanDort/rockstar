@@ -1,11 +1,13 @@
 <h1>$client.getName()</h1>
-
+<hr>
 <h2> Client Of: $stylist.getName() </h2>
+<br>
 <h2> Contact Number: $client.getPhone()</h2>
-
+<br>
+<hr>
 <h2>Edit Client Information:</h2>
 
-<form action="/stylists/$client.getgetStylistId()/clients/$client.getId()" method="post">
+<form action="/stylists/$client.getgetStylistId()/clients/$client.getId()" method="post" class="form control">
   <label for="name">Update Name</label>
   <input id="name" name="name" type="text">
 
@@ -15,8 +17,12 @@
   <button type="submit" class="btn btn-info">Update</button>
 </form>
 
+<br>
+<br>
+<h2>Delete This Client</h2>
 <form action="/stylists/$client.getgetStylistId()/clients/$client.getId()/delete" method="post">
   <button type="submit" class="btn btn-danger" id="delete-client">Delete Client</button>
 </form>
 
-<a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a>
+<hr>
+<a href="/stylists/$stylist.getId()">Return to $stylist.getName()'s Page</a>&nbsp;<a href="/">Return to Main Page</a>

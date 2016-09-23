@@ -38,6 +38,18 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    post("/stylists/:stylist_id/clients/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Client client = Client.find(Integer.parseInt(request.params("id")));
+      String name = request.queryParams("name");
+      String phone = request.queryParams("phone");
+      Stylist stylist = Stylist.find(client.getStylistId());
+      client.update(name, phone);
+      String url = String.format("/clients/%d", client.getId());
+      response.redirect(url);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     post("/stylists", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
@@ -51,16 +63,13 @@ public class App {
     post("/clients", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylist_id")));
-
       String name = request.queryParams("name");
       String phone = request.queryParams("phone");
       Client newClient = new Client(name, phone, stylist.getId());
       newClient.save();
-
       model.put("stylist", stylist);
       model.put("client", newClient);
       model.put("template", "templates/success.vtl");
-
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -74,7 +83,15 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-
+    post("/stylists/:stylist_id/clients/:id/delete", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Client client = Client.find(Integer.parseInt(request.params("id")));
+      Stylist stylist = Stylist.find(client.getStylistId());
+      client.delete();
+      model.put("stylist", stylist);
+      model.put("template", "templates/success-delete.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
 
 

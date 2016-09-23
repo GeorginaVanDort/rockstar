@@ -1,0 +1,59 @@
+body {
+  font-family: 'Josefin Slab', serif;
+  font-size: 1.5em;
+}
+
+h1 {
+  font-family: 'Faster One', cursive;
+  font-size: 4em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.img-display {
+  max-height: 400px;
+}
+
+.tile {
+  max-width: 60%;
+  margin: 40px auto 0;
+}
+
+.btn {
+  font-family: 'Bungee', cursive;
+  color: black;
+  font-size: 1em;
+  font-weight: bolder;
+  border-color: grey;
+  border-width: thin;
+  padding: 5px;
+}
+
+.btn:hover {
+  border-color: #ff463b;
+  border-width: 1.8px;
+}
+
+input {
+box-sizing: content-box;
+}
+
+.embed {
+  padding: 30px;
+}
+
+.little {
+  max-height: 100px;
+  max-width: 120px;
+}
+
+a {
+  font-weight: bolder;
+  color: black;
+}
+
+a:hover {
+  color: #ff3f00;
+}

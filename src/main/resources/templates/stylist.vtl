@@ -1,6 +1,19 @@
 
 <h1>$stylist.getName():</h1>
+<hr>
 
+<h2>Edit $stylist.getName()'s Details:</h2>
+<form action="/stylists/$stylist.getId()" method="post">
+  <div class="form-group">
+    <label for="name">Name of Stylist</label>
+    <input id="name" name="name" type="text" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+<hr>
+
+<h2>$stylist.getName()'s Client List</h2>
 #if($client)
   <p>Click on a Client to see details:</p>
     <ul>
@@ -12,7 +25,7 @@
   <p>There are no clients listed</p>
 #end
 
-<h2>Add a new Client:</h2>
+<h2>Add a new Client for $stylist.getName():</h2>
 
   <form action="/clients" method="post">
     <div class="form-group">

@@ -1,11 +1,15 @@
 body {
   font-family: 'Josefin Slab', serif;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 h1 {
   font-family: 'Faster One', cursive;
-  font-size: 4em;
+  font-size: 4.5em;
+}
+
+h2 {
+  text-align: left;
 }
 
 .bold {
@@ -38,15 +42,6 @@ h1 {
 
 input {
 box-sizing: content-box;
-}
-
-.embed {
-  padding: 30px;
-}
-
-.little {
-  max-height: 100px;
-  max-width: 120px;
 }
 
 a {

@@ -4,15 +4,16 @@
 
   #if($stylists)
     <p>Click on a Stylist to see details:</p>
-    <ul>
+    <div class="row">
       #foreach ($stylist in $stylists)
-        <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
+        <div class="col-sm-4"><a href="/stylists/$stylist.getId()">$stylist.getName()</a></div>
       #end
-    </ul>
+    </div>
   #else
     <p>There are no stylists listed</p>
   #end
 
+<div class="">
   <h2>Add a Stylist</h2>
 
   <form action="/stylists" method="post">
@@ -22,3 +23,4 @@
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
+</div>
